@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:51:21 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/05 15:44:16 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/10 22:01:06 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,14 @@
 
 typedef struct s_pipex
 {
-	char	*infile;
-	char	*outfile;
-	char	**cmd1;
-	char	**cmd2;
-	char	**paths;
-}			t_pipex;
-
-typedef struct s_pipex
-{
+	int		pipe_fd[2];
 	char	**paths;
 	char	**envp;
-	int		*pipe_fd;
+	char	*infile;
+	char	*outfile;
+	char	*cmd1;
+	char	*cmd2;
+
 }			t_pipex;
 
 char		**get_paths(char **envp);
