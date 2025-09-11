@@ -2,7 +2,16 @@ NAME = pipex
 
 HEADER = pipex.h 
 
-SOURCES = 
+SOURCES = main.c \
+		pipex.c \
+		fork/fork.c \
+		parsing/paths.c \
+       	libft/ft_split.c \
+	   	parsing/parsing.c \
+	   	libft/utils_libft.c \
+	   	libft/utils_libft_n_split.c \
+	   	free/free_argv.c 
+
 
 
 OBJECTS = $(SOURCES:.c=.o)

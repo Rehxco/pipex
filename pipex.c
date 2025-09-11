@@ -6,13 +6,13 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:55:40 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/10 22:17:18 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/11 15:10:30 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	run_child(t_pipex *px, int is_first)
+void	run_child(t_pipex *px)
 {
 	pid_t	pid;
 	pid_t	pid2;
@@ -54,5 +54,5 @@ void	pipex(int argc, char **argv, char **envp)
 		perror("pipe");
 		exit(1);
 	}
-	run_child(&px, 1);
+	run_child(&px);
 }

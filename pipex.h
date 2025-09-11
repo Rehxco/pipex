@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:51:21 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/10 22:01:06 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:10:40 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <limits.h>
 # include <stdbool.h>
 # include <stddef.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <sys/types.h>
@@ -51,5 +52,8 @@ char		*ft_strjoin(char const *str1, char const *str2);
 void		run_cmd1(char *cmd, char *file_in, t_pipex *px);
 void		free_argv(char **tabs);
 void		run_cmd2(char *cmd, char *file_out, t_pipex *px);
+void		run_child(t_pipex *px);
+void		pipex(int argc, char **argv, char **envp);
+int			main(int argc, char **argv, char **envp);
 
 #endif
