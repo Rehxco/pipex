@@ -6,11 +6,11 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:59:49 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/05 15:46:28 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:13:45 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 char	*ft_strjoin(char const *str1, char const *str2)
 {

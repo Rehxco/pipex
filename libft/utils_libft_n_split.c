@@ -6,11 +6,11 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:56:22 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/05 15:38:22 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:13:41 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 size_t	ft_strlen(const char *str)
 {

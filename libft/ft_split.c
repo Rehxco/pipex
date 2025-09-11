@@ -6,11 +6,11 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 15:04:56 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/01 19:59:18 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:13:37 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 static int	ft_count_words(const char *str, char sep)
 {

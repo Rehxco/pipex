@@ -6,11 +6,11 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 22:52:00 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/05 15:38:44 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:13:49 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 char	**parse_cmd(char *cmd)
 {

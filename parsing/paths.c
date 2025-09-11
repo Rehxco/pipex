@@ -6,11 +6,11 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 20:02:33 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/05 11:39:06 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:14:17 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 char	**get_paths(char **envp)
 {
@@ -31,7 +31,6 @@ char	**get_paths(char **envp)
 
 char	*try_path(char *paths, char *cmd)
 {
-	int		j;
 	char	*tmp;
 	char	*finalcmd;
 

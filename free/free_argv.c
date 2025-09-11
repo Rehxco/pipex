@@ -6,11 +6,11 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 15:12:49 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/05 15:45:26 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:13:33 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 void	free_argv(char **tabs)
 {
