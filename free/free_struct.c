@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_argv.c                                        :+:      :+:    :+:   */
+/*   free_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/05 15:12:49 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 18:55:32 by sbrochar         ###   ########.fr       */
+/*   Created: 2025/09/29 17:52:26 by sbrochar          #+#    #+#             */
+/*   Updated: 2025/09/29 18:11:46 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
 
-void	free_argv(char **tabs)
+void	free_struct(t_pipex	*px)
 {
-	int	i;
-
-	i = 0;
-	if (!tabs)
-		return ;
-	while (tabs[i] != NULL)
+	if (px)
 	{
-		free(tabs[i]);
-		i++;
+		if (px->paths)
+		{
+			free_argv(px->paths);
+		}
 	}
-	free(tabs);
 }

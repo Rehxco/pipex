@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:51:21 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/11 12:10:40 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/29 19:38:09 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ char		*ft_strcpy(char *restrict dest, const char *restrict src);
 size_t		ft_strlcpy(char *dest, const char *src, size_t size);
 char		*ft_strdup(const char *src);
 char		*ft_strjoin(char const *str1, char const *str2);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		run_cmd1(char *cmd, char *file_in, t_pipex *px);
 void		free_argv(char **tabs);
 void		run_cmd2(char *cmd, char *file_out, t_pipex *px);
 void		run_child(t_pipex *px);
 void		pipex(int argc, char **argv, char **envp);
 int			main(int argc, char **argv, char **envp);
+void		free_struct(t_pipex *px);
 
 #endif

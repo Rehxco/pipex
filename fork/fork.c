@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 23:58:26 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/11 15:16:40 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/29 21:41:11 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	run_cmd1(char *cmd, char *file_in, t_pipex *px)
 	if (fd_in == -1)
 	{
 		perror("open file_in");
+		free_argv(argv);
 		exit(1);
 	}
 	dup2(fd_in, STDIN_FILENO);
@@ -37,7 +38,7 @@ void	run_cmd1(char *cmd, char *file_in, t_pipex *px)
 	execve(argv[0], argv, px->envp);
 	perror("execve");
 	free_argv(argv);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 
 void	run_cmd2(char *cmd, char *file_out, t_pipex *px)
@@ -55,6 +56,7 @@ void	run_cmd2(char *cmd, char *file_out, t_pipex *px)
 	if (fd_out == -1)
 	{
 		perror("open file_out");
+		free_argv(argv);
 		exit(1);
 	}
 	close(px->pipe_fd[1]);
@@ -65,5 +67,5 @@ void	run_cmd2(char *cmd, char *file_out, t_pipex *px)
 	execve(argv[0], argv, px->envp);
 	perror("execve");
 	free_argv(argv);
-	exit(1);
+	exit(EXIT_FAILURE);
 }

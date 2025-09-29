@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:55:40 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/11 15:10:30 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/29 22:05:30 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	run_child(t_pipex *px)
 			close(px->pipe_fd[1]);
 			waitpid(pid, NULL, 0);
 			waitpid(pid2, NULL, 0);
+			free_argv(px->paths);
+
 		}
 	}
 }
@@ -40,19 +42,25 @@ void	pipex(int argc, char **argv, char **envp)
 	t_pipex	px;
 
 	if (argc != 5)
-		exit(1);
+	{
+		write(1, "wrong args number\n", 19);
+		return ;
+	}
 	px.infile = argv[1];
 	px.cmd1 = argv[2];
 	px.cmd2 = argv[3];
 	px.outfile = argv[4];
+
 	px.envp = envp;
 	px.paths = get_paths(envp);
-	if (!px.paths)
-		exit(1);
+	//(if !px.path)
+		//free_tab car still reachable
+	free_argv(px.paths);
 	if (pipe(px.pipe_fd) == -1)
 	{
 		perror("pipe");
-		exit(1);
+		return (free_struct(&px));
 	}
 	run_child(&px);
+	//free_struct(&px);
 }

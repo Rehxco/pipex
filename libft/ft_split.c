@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 15:04:56 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/11 12:13:37 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/29 18:01:09 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ static char	*ft_fill_word(const char *str, char sep)
 		j++;
 	}
 	new = ft_substr(str, i, count);
+	if (!new)
+		return (NULL);
 	return (new);
 }
 

@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 20:02:33 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/11 12:14:17 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/29 19:22:43 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	**get_paths(char **envp)
 		return (NULL);
 	tab = ft_split(envp[i] + 5, ':');
 	if (!tab)
-		return (NULL);
+		return (free(tab), NULL);
 	return (tab);
 }
 

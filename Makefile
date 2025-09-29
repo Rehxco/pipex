@@ -10,7 +10,8 @@ SOURCES = main.c \
 	   	parsing/parsing.c \
 	   	libft/utils_libft.c \
 	   	libft/utils_libft_n_split.c \
-	   	free/free_argv.c 
+	   	free/free_argv.c \
+		free/free_struct.c
 
 
 
