@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 23:58:26 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 22:46:02 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/29 23:21:18 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	run_cmd1(char *cmd, char *file_in, t_pipex *px)
 
 	argv = build_cmd(cmd, px->paths);
 	if (!argv)
-		clean_exit_child(px, NULL, 1);
+		cmd_not_found(cmd, px);
 	fd_in = open(file_in, O_RDONLY);
 	if (fd_in == -1)
 	{
@@ -63,7 +63,7 @@ void	run_cmd2(char *cmd, char *file_out, t_pipex *px)
 
 	argv = build_cmd(cmd, px->paths);
 	if (!argv)
-		clean_exit_child(px, NULL, 1);
+		cmd_not_found(cmd, px);
 	fd_out = open(file_out, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd_out == -1)
 	{

@@ -6,11 +6,22 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:55:40 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 22:45:22 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/29 23:18:48 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void    cmd_not_found(char *cmd, t_pipex *px)
+{
+    write(2, "pipex: ", 7);
+    write(2, cmd, ft_strlen(cmd));
+    write(2, ": command not found\n", 20);
+    if (px->paths)
+        free_argv(px->paths);
+    exit(127);
+}
+
 
 void	run_child(t_pipex *px)
 {

@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:51:21 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 22:45:27 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/29 23:19:05 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ void		pipex(int argc, char **argv, char **envp);
 int			main(int argc, char **argv, char **envp);
 void		free_struct(t_pipex *px);
 void		clean_exit_child(t_pipex *px, char **argv, int code);
+void		cmd_not_found(char *cmd, t_pipex *px);
 
 #endif
