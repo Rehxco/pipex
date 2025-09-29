@@ -6,23 +6,20 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 15:12:49 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 18:55:32 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/29 22:45:50 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
 
-void	free_argv(char **tabs)
+void	free_argv(char **argv)
 {
 	int	i;
 
 	i = 0;
-	if (!tabs)
+	if (!argv)
 		return ;
-	while (tabs[i] != NULL)
-	{
-		free(tabs[i]);
-		i++;
-	}
-	free(tabs);
+	while (argv[i])
+		free(argv[i++]);
+	free(argv);
 }

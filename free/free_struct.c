@@ -6,13 +6,13 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:52:26 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 18:11:46 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/29 22:46:53 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
 
-void	free_struct(t_pipex	*px)
+void	free_struct(t_pipex *px)
 {
 	if (px)
 	{

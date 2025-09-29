@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 22:52:00 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 18:55:00 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/29 22:45:36 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,15 @@ char	**parse_cmd(char *cmd)
 char	**build_cmd(char *cmd, char **paths)
 {
 	char	**argv;
+	char	*tmp;
 
 	argv = parse_cmd(cmd);
 	if (!argv)
 		return (NULL);
+	tmp = argv[0];
 	argv[0] = get_cmd_path(argv[0], paths);
-	if (argv[0] == NULL)
+	free(tmp);
+	if (!argv[0])
 	{
 		free_argv(argv);
 		return (NULL);
