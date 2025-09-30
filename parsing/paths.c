@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 20:02:33 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 19:22:43 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:06:14 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,15 @@ char	*check_path(char **paths, char *cmd)
 	char	*res;
 
 	j = 0;
+	if (!paths)
+		return (NULL);
 	while (paths[j])
 	{
 		res = try_path(paths[j], cmd);
 		if (res)
+		{
 			return (res);
+		}
 		j++;
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:51:21 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 23:19:05 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:06:34 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,15 @@
 typedef struct s_pipex
 {
 	int		pipe_fd[2];
+	int		fd[2];
 	char	**paths;
 	char	**envp;
 	char	*infile;
 	char	*outfile;
 	char	*cmd1;
 	char	*cmd2;
+	char	**final_cmd1;
+	char	**final_cmd2;
 
 }			t_pipex;
 
@@ -52,12 +55,11 @@ char		*ft_strjoin(char const *str1, char const *str2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		run_cmd1(char *cmd, char *file_in, t_pipex *px);
 void		free_argv(char **tabs);
-void		run_cmd2(char *cmd, char *file_out, t_pipex *px);
+void		run_cmd2(char *cmd, char *file_in, t_pipex *px);
 void		run_child(t_pipex *px);
 void		pipex(int argc, char **argv, char **envp);
 int			main(int argc, char **argv, char **envp);
 void		free_struct(t_pipex *px);
 void		clean_exit_child(t_pipex *px, char **argv, int code);
-void		cmd_not_found(char *cmd, t_pipex *px);
 
 #endif

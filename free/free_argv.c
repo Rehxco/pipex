@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 15:12:49 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 22:45:50 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:05:38 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ void	free_argv(char **argv)
 
 	i = 0;
 	if (!argv)
+	{
 		return ;
+	}
 	while (argv[i])
+	{
 		free(argv[i++]);
+	}
 	free(argv);
 }

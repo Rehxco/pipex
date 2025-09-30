@@ -6,22 +6,11 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:55:40 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 23:18:48 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:06:25 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-void    cmd_not_found(char *cmd, t_pipex *px)
-{
-    write(2, "pipex: ", 7);
-    write(2, cmd, ft_strlen(cmd));
-    write(2, ": command not found\n", 20);
-    if (px->paths)
-        free_argv(px->paths);
-    exit(127);
-}
-
 
 void	run_child(t_pipex *px)
 {
@@ -38,15 +27,14 @@ void	run_child(t_pipex *px)
 			run_cmd2(px->cmd2, px->outfile, px);
 		else
 		{
-			close(px->pipe_fd[0]);
-			close(px->pipe_fd[1]);
+			if (px->pipe_fd[0] != -1)
+				close(px->pipe_fd[0]);
+			if (px->pipe_fd[1] != -1)
+				close(px->pipe_fd[1]);
 			waitpid(pid, NULL, 0);
 			waitpid(pid2, NULL, 0);
 			if (px->paths)
-			{
 				free_argv(px->paths);
-				px->paths = NULL;
-			}
 		}
 	}
 }
@@ -57,24 +45,20 @@ void	pipex(int argc, char **argv, char **envp)
 
 	if (argc != 5)
 	{
-		write(1, "wrong args number\n", 19);
+		write(2, "wrong args number\n", 19);
 		return ;
 	}
+	px.pipe_fd[0] = -1;
+	px.pipe_fd[1] = -1;
+	px.fd[0] = -1;
+	px.fd[1] = -1;
 	px.infile = argv[1];
 	px.cmd1 = argv[2];
 	px.cmd2 = argv[3];
 	px.outfile = argv[4];
 	px.envp = envp;
 	px.paths = get_paths(envp);
-	if (!px.paths)
-	{
-		write(2, "PATH not found\n", 15);
-		return ;
-	}
 	if (pipe(px.pipe_fd) == -1)
-	{
-		perror("pipe");
-		return ;
-	}
+		return (perror("pipe failed\n"));
 	run_child(&px);
 }
