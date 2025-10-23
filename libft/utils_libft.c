@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:59:49 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/09/29 22:46:39 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/10/23 21:14:21 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,21 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	}
 	return (0);
+}
+char	*ft_strchr(const char *str, int c)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == (unsigned char)c)
+		{
+			return ((char *)(str + i));
+		}
+		i++;
+	}
+	if ((unsigned char)c == '\0')
+		return ((char *)str + i);
+	return (NULL);
 }

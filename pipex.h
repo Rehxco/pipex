@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:51:21 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/10/21 17:55:59 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/10/23 21:36:46 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_pipex
 }			t_pipex;
 
 char		**get_paths(char **envp);
+char		*ft_strchr(const char *str, int c);
 char		*try_path(char *paths, char *cmd);
 char		*check_path(char **paths, char *cmd);
 char		*get_cmd_path(char *cmd, char **paths);
@@ -56,7 +57,7 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		run_cmd1(char *cmd, char *file_in, t_pipex *px);
 void		free_argv(char **tabs);
 void		run_cmd2(char *cmd, char *file_in, t_pipex *px);
-void		run_child(t_pipex *px);
+int			run_child(t_pipex *px);
 void		pipex(int argc, char **argv, char **envp);
 int			main(int argc, char **argv, char **envp);
 void		free_struct(t_pipex *px);

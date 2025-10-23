@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 20:02:33 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/10/21 17:55:44 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/10/23 21:21:32 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,25 +78,14 @@ char	*check_path(char **paths, char *cmd)
 
 char	*get_cmd_path(char *cmd, char **paths)
 {
-	int		i;
-	char	*copy;
-
-	i = 0;
-	while (cmd[i])
+	if (!cmd)
+		return (NULL);
+	if (ft_strchr(cmd, '/'))
 	{
-		if (cmd[i] == '/')
-		{
-			if (access(cmd, X_OK) == 0)
-			{
-				copy = ft_strdup(cmd);
-				if (!copy)
-					return (NULL);
-				return (copy);
-			}
-			else
-				return (check_path(paths, cmd));
-		}
-		i++;
+		if (access(cmd, X_OK) == 0)
+			return (ft_strdup(cmd));
+		perror(cmd);
+		return (NULL);
 	}
 	return (check_path(paths, cmd));
 }

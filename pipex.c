@@ -6,24 +6,28 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:55:40 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/10/21 21:07:31 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/10/23 21:56:27 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	run_child(t_pipex *px)
+int	run_child(t_pipex *px)
 {
 	pid_t	pid;
 	pid_t	pid2;
 
 	pid = fork();
-	if (pid == 0)
+	if(pid < 0)
+		return(perror("fork"), -1);
+	else if (pid == 0)
 		run_cmd1(px->cmd1, px->infile, px);
 	else
 	{
 		pid2 = fork();
-		if (pid2 == 0)
+		if(pid2 < 0)
+			return(perror("fork"), -1);
+		else if (pid2 == 0)
 			run_cmd2(px->cmd2, px->outfile, px);
 		else
 		{
@@ -37,6 +41,7 @@ void	run_child(t_pipex *px)
 				free_argv(px->paths);
 		}
 	}
+	return (0);
 }
 
 void	pipex(int argc, char **argv, char **envp)
@@ -60,5 +65,6 @@ void	pipex(int argc, char **argv, char **envp)
 	px.paths = get_paths(envp);
 	if (pipe(px.pipe_fd) == -1)
 		return (perror("pipe failed\n"));
-	run_child(&px);
+	if (run_child(&px) == -1)
+		return ;
 }
