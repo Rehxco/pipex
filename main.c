@@ -6,7 +6,7 @@
 /*   By: sbrochar <sbrochar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 11:56:40 by sbrochar          #+#    #+#             */
-/*   Updated: 2025/10/23 21:58:59 by sbrochar         ###   ########.fr       */
+/*   Updated: 2025/10/27 18:35:49 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv, char **envp)
 
 	if (argc != 5)
 	{
-		write(2, "wrong args number\n", 19);
+		write(2, "Wrong args number\n", 19);
 		return (1);
 	}
 	px.pipe_fd[0] = -1;
@@ -32,8 +32,8 @@ int	main(int argc, char **argv, char **envp)
 	px.envp = envp;
 	px.paths = get_paths(envp);
 	if (pipe(px.pipe_fd) == -1)
-		return (perror("pipe failed\n"), 1);
-	if (run_child(&px) == -1)
+		return (perror("Pipe failed\n"), 1);
+	if (run_child(&px) == false)
 		return (1);
 	return (0);
 }
